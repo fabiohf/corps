@@ -1,0 +1,15 @@
+<?php
+$title = 'Excluir Lanterna';
+$this->headTitle($title);
+?>
+    <h1><?php $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('lanterna', array('action' => 'delete', 'codigo' => $codigo)));
+$form->prepare;
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($this->form);
+echo $this->form()->closeTag();
+
+?>

@@ -1,0 +1,26 @@
+<?php
+$title = 'Setores';
+$this->headTitle($title);
+?>
+<h1><?php $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('setor', array('action' => 'add')); ?>">Novo Setor</a>
+</p>
+<table class="table">
+    <tr>
+        <th>Codigo</th>
+        <th>Nome</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    <?php foreach($this->setores as $setor) : ?>
+    <tr>
+        <td><?php echo $setor->codigo; ?></td>
+        <td><?php echo $this->escapeHtml($setor->nome); ?></td>
+        <td>
+            <a href="<?php echo $this->url('setor', array('action' => 'edit', 'codigo' => $setor->codigo)); ?>">Editar</a>
+            <a href="<?php echo $this->url('setor', array('action' => 'delete', 'codigo' => $setor->codigo)); ?>"> Excluir</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>

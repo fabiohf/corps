@@ -1,0 +1,27 @@
+<?php
+$title = 'Lanternas Verdes';
+$this->headTitle($title);
+?>
+<h1><?php $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('lanterna', array('action' => 'add')); ?>">Novo Lanterna</a>
+</p>
+<table class="table">
+    <tr>
+        <th>Codigo</th>
+        <th>Nome</th>
+        <th>Setor</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach($this->lanternas as $lanterna) : ?>
+    <tr>
+        <td><?php echo $lanterna->codigo; ?></td>
+        <td><?php echo $this->escapeHtml($lanterna->nome); ?></td>
+        <td><?php echo $this->escapeHtml($lanterna->setor->nome); ?></td>
+        <td>
+            <a href="<?php echo $this->url('lanterna', array('action' => 'edit', 'codigo' => $lanterna->codigo)); ?>">Editar</a>
+            <a href="<?php echo $this->url('lanterna', array('action' => 'delete', 'codigo' => $lanterna->codigo)); ?>"> Excluir</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>

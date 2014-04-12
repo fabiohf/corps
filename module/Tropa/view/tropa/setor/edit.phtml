@@ -1,0 +1,15 @@
+<?php
+$title = 'Alterar Setor';
+$this->headTitle($title);
+?>
+<h1><?php $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('setor', array('action' => 'edit', 'codigo' => $form->get('codigo')->getValue())));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($this->form);
+echo $this->form()->closeTag();
+
+?>
